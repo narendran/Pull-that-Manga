@@ -1,0 +1,57 @@
+#!/usr/bin/env python
+
+from BeautifulSoup import *
+import subprocess
+from urllib2 import *
+from urllib import *
+from Tkinter import *
+import sys
+import re
+
+mangasite="http://mangareader.net"
+
+class manga:
+	def __init__(self,master):
+		frame=Frame(master)
+		frame.pack()
+		
+		#Attach Chapter number Label and TextEntry
+		self.chaplabel=Label(frame,text="Chapter Number")
+		self.chaplabel.grid(row=0,column=0,sticky=W)
+		self.chapentry=Entry(frame)
+		self.chapentry.grid(row=0,column=1,sticky=W)
+		self.pullbutton=Button(frame,text="Pull that Manga!",fg="Blue",command=self.pullmanga)
+		self.pullbutton.grid(row=0,column=3,sticky=W)
+		
+	def pullmanga(self):
+	
+		chapter=self.chapentry.get()
+		naruto=mangasite+"/naruto"
+		dlurl=naruto+"/"+chapter;
+		soup=BeautifulSoup(urlopen(dlurl).read())
+		
+		# Get the image link from the source
+		imglink=soup('img',id="img")[0]['src']
+		subprocess.call(["wget","-nc",imglink],stdout=0)
+		
+		#Go for the next page
+		pages=[str(i["value"]) for i in soup.find("select",id="pageMenu").findAll("option")]
+		for i in pages:
+			dlurl=mangasite+i
+			soup=BeautifulSoup(urlopen(dlurl).read())
+			# Get the image link from the source
+			imglink=soup('img',id="img")[0]['src']
+#			subprocess.call(["mkdir",chapter])
+			subprocess.call(["wget","-nc",imglink],stdout=0)
+		self.close()
+		
+	
+if __name__=='__main__':
+
+	root=Tk();
+	root.title("Pull That Manga!");
+	app=manga(root);
+	root.mainloop();
+
+	
+

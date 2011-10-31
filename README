@@ -1,0 +1,23 @@
+About : 
+-------
+This little hack that can be used for downloading your favourite Manga Comics. :) I have set it up for Naruto alone as of Oct 31,2011. Its a part of my learning on web scrapping using Python.
+It works on a module called BeautifulSoup which is really Beautiful to use :P
+
+For now, it works only in Linux based OS. I've tested it on ubuntu, but any other Linux-based OS should be perfectly fine.
+
+Installation : 
+--------------
+Copy "mangadl" file to your /usr/bin directory. (as simple as that)
+
+Usage :
+-------
+1. Create a directory where you want the manga images to be downloaded.
+2. Open terminal and 'cd' into the directory
+3. Type "mangadl" in the terminal - A small window opens asking for the chapter number.
+4. Enter the chapter number and click "Pull that Manga". Every image from the comic is pulled into the current directory.
+
+Future :
+--------
+Downloading range of chapters and arranging them in different folders. Thats my next aim. 
+Sadly, I got semester exams in a few days :( 
+
