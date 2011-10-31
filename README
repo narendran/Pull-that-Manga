@@ -1,6 +1,7 @@
 About : 
 -------
-This little hack that can be used for downloading your favourite Manga Comics. :) I have set it up for Naruto alone as of Oct 31,2011. Its a part of my learning on web scrapping using Python.
+This little hack that can be used for downloading your favourite Manga Comics. :) Saves a lot of time waiting for manga comics to be fully loaded.
+I have set it up for Naruto alone as of Oct 31,2011. Its a part of my learning on web scrapping using Python.
 It works on a module called BeautifulSoup which is really Beautiful to use :P
 
 For now, it works only in Linux based OS. I've tested it on ubuntu, but any other Linux-based OS should be perfectly fine.
